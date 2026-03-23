@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoYatra</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{color:white;scroll-behavior:smooth}
+
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+h1{
+font-size:80px;
+letter-spacing:3px;
+}
+
+span{color:#ff9900;}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:10px;
+background:#ff9900;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* SECOND SECTION */
+.section{
+height:100vh;
+background:#0b0f1a;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>Go<span>Yatra</span></h1>
+<button onclick="goNext()">Enter</button>
+</div>
+
+<div class="section" id="next">
+Welcome to GoYatra 🚀
+</div>
+
+<script>
+function goNext(){
+document.getElementById("next").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
