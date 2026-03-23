@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoYatra</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* Navbar */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+}
+
+nav h2 {
+  color: #38bdf8;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
+  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  margin: 15px;
+  padding: 25px;
+  border-radius: 15px;
+  width: 250px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Booking Form */
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+button.submit {
+  background: #22c55e;
+  color: white;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: #020617;
+  text-align: center;
+}
+
+/* Animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>GoYatra</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Booking</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div>
+    <h1>Travel Smart with GoYatra</h1>
+    <button onclick="scrollToSection()">Book Now</button>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services" class="fade">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Cab Booking</h3>
+      <p>Safe & affordable rides</p>
+    </div>
+    <div class="card">
+      <h3>Tour Packages</h3>
+      <p>Custom travel plans</p>
+    </div>
+    <div class="card">
+      <h3>Guides</h3>
+      <p>Explore with locals</p>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section id="booking" class="fade">
+  <h2>Book Your Trip</h2>
+  <form onsubmit="bookNow(event)">
+    <input type="text" placeholder="Your Name" required>
+    <input type="text" placeholder="Destination" required>
+    <input type="date" required>
+    <select>
+      <option>Cab</option>
+      <option>Tour Package</option>
+    </select>
+    <button class="submit">Submit</button>
+  </form>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="fade">
+  <h2>Contact Us</h2>
+  <p>Email: goyatra@gmail.com</p>
+  <p>Phone: +91 9876543210</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 GoYatra</p>
+</footer>
+
+<script>
+function scrollToSection() {
+  document.getElementById("booking").scrollIntoView({behavior: "smooth"});
+}
+
+function bookNow(e) {
+  e.preventDefault();
+  alert("Booking submitted successfully!");
+}
+
+// Scroll Animation
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  fades.forEach(f => {
+    const top = f.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      f.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
